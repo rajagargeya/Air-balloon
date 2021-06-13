@@ -11,13 +11,13 @@ function preload(){
 }
 function setup() {
   data = firebase.database();
-  console.log(database);
-createCanvas(1500,700);
+  console.log(data);
+createCanvas(1000,600);
   balloon=createSprite(250,650,150,150);
   balloon.addAnimation("hotAirBalloon",balloonImage1);
   balloon.scale=0.5;
 
-  var balloonHeight=database.ref('balloon/height');
+  var balloonHeight=data.ref('airBalloon/height');
   balloonHeight.on("value",readHeight, showError);
   textSize(20); 
 }
@@ -51,10 +51,10 @@ function draw() {
   text("**Use arrow keys to move Hot Air Balloon!",40,40);
 }
 
-function writePosition(x,y){
-  data.ref('ball/position').set({
-    'x': position.x + x ,
-    'y': position.y + y
+function updateHeight(x,y){
+  data.ref('airBalloon/position').set({
+    'x': height.x + x ,
+    'y': height.y + y
   })
 }
 
