@@ -43,8 +43,9 @@ function draw() {
     balloon.addAnimation("hotAirBalloon",balloonImage2);
     balloon.scale=balloon.scale+0.005;
   
-    drawSprites();
+    
   }
+   drawSprites();
   fill(0);
   stroke("white");
   textSize(25);
